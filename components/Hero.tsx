@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CustomButton from "./CustomButton";
 
 const Hero = () => {
   return (
@@ -11,6 +12,8 @@ const Hero = () => {
         <p className="hero__subtitle">
           간편한 예약 절차를 통해 렌터카 경험을 간소화하세요.
         </p>
+
+        <CustomButton />
       </div>
     </div>
   );
