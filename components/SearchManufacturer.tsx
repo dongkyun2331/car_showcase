@@ -56,13 +56,26 @@ const SearchManufacturer = ({
           >
             <Combobox.Options>
               {/* 검색 결과가 없고 검색어가 비어있지 않을 경우 */}
-              {filteredManufacturers.length === 0 && query !== "" && (
+              {filteredManufacturers.length === 0 && query !== "" ? (
                 <Combobox.Option
                   value={query}
                   className="search-manufacturer__option"
                 >
                   검색 "{query}"
                 </Combobox.Option>
+              ) : (
+                filteredManufacturers.map((item) => (
+                  <Combobox.Option
+                    key={item}
+                    className={({ active }) => `
+relative search-manufacturer__option ${
+                      active ? "bg-primary-blue text-white" : "text-gray-900"
+                    }`}
+                    value={item}
+                  >
+                    {item}
+                  </Combobox.Option>
+                ))
               )}
             </Combobox.Options>
           </Transition>
