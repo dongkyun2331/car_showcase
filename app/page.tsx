@@ -26,6 +26,23 @@ export default async function Home() {
             <CustomFilter title="year" />
           </div>
         </div>
+
+        {!isDataEmpty ? (
+          <section>
+            <div className="home__cars-wrapper">
+              {allCars?.map((car) => (
+                <CarCard car={car} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          <div className="home__error-container">
+            <h2 className="text-black text-xl font-bold">
+              죄송합니다. 결과가 없습니다.
+            </h2>
+            <p>{allCars?.message}</p>
+          </div>
+        )}
       </div>
     </main>
   );
