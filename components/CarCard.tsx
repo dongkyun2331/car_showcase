@@ -58,16 +58,16 @@ const CarCard = ({ car }: CarCardProps) => {
             <p className="text-[14px]">{drive.toUpperCase()}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <Image
-              src="/steering-wheel.svg"
-              width={20}
-              height={20}
-              alt="steering wheel"
-            />
-            <p className="text-[14px]">
-              {transmission === "a" ? "Automatic" : "Manual"}
-            </p>
+            <Image src="/gas.svg" width={20} height={20} alt="steering wheel" />
+            <p className="text-[14px]">{city_mpg} MPG</p>
           </div>
+        </div>
+
+        <div className="car-card__btn-container">
+          <CustomButton
+            title="View More"
+            containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+          />
         </div>
       </div>
     </div>
