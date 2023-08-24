@@ -64,7 +64,7 @@ relative search-manufacturer__option ${
                   }`}
                   value={item}
                 >
-                  {({ selected, active }) => {
+                  {({ selected, active }) => (
                     <>
                       <span
                         className={`block truncate ${
@@ -82,8 +82,8 @@ relative search-manufacturer__option ${
                           }`}
                         ></span>
                       ) : null}
-                    </>;
-                  }}
+                    </>
+                  )}
                 </Combobox.Option>
               ))}
             </Combobox.Options>
