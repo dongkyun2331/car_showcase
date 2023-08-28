@@ -29,6 +29,8 @@ const SearchBar = () => {
     if (manufacturer === "" && model === "") {
       return alert("빈칸을 입력하세요");
     }
+
+    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
