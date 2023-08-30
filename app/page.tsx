@@ -40,7 +40,9 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {}, [fuel, year, limit, manufacturer, model]);
+  useEffect(() => {
+    getCars();
+  }, [fuel, year, limit, manufacturer, model]);
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
@@ -72,8 +74,8 @@ export default function Home() {
             </div>
 
             <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > allCars.length}
+              pageNumber={(limit || 10) / 10}
+              isNext={(limit || 10) > allCars.length}
             />
           </section>
         ) : (
