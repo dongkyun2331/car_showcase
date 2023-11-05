@@ -8,20 +8,23 @@ import { fuels, yearsOfProduction } from "@/constants";
 import Image from "next/image";
 
 export default function Home() {
+  // 모든 자동차 목록을 저장하기 위한 상태
   const [allCars, setAllCars] = useState([]);
+  // 로딩 상태를 나타내는 상태
   const [loading, setLoading] = useState(false);
 
-  // search states
+  // 제조사와 모델을 위한 검색 상태
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
 
-  // filter states
+  // 연료 종류와 생산 연도를 위한 필터 상태
   const [fuel, setFuel] = useState("");
   const [year, setYear] = useState(2022);
 
-  // pagination states
+  // 표시되는 자동차 수를 제한하기 위한 페이지네이션 상태
   const [limit, setLimit] = useState(10);
 
+  // 검색 및 필터 기준에 따라 자동차를 가져오는 함수
   const getCars = async () => {
     setLoading(true);
     try {
@@ -41,11 +44,12 @@ export default function Home() {
     }
   };
 
+  // 검색 또는 필터 기준이 변경될 때 getCars 함수를 호출하는 useEffect
   useEffect(() => {
-    console.log(fuel, year, limit, manufacturer, model);
     getCars();
   }, [fuel, year, limit, manufacturer, model]);
 
+  // 데이터가 없거나 오류가 발생했을 때 사용할 상태
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
@@ -62,6 +66,7 @@ export default function Home() {
           <SearchBar setManufacturer={setManufacturer} setModel={setModel} />
 
           <div className="home__filter-container">
+            {/* 연료 종류 및 생산 연도를 위한 커스텀 필터 */}
             <CustomFilter title="fuel" options={fuels} setFilter={setFuel} />
             <CustomFilter
               title="year"
@@ -75,12 +80,14 @@ export default function Home() {
           <section>
             <div className="home__cars-wrapper">
               {allCars?.map((car) => (
+                // 각 자동차에 대한 CarCard 컴포넌트 렌더링
                 <CarCard car={car} />
               ))}
             </div>
 
             {loading && (
               <div className="mt-16 w-full flex-center">
+                {/* 로딩 스피너 표시 */}
                 <Image
                   src="/loader.svg"
                   alt="loader"

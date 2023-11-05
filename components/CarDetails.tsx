@@ -1,15 +1,16 @@
-"use client";
+"use client"; // 클라이언트 측 자바스크립트 코드를 나타냅니다.
 
-import { Fragment } from "react";
-import Image from "next/image";
-import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react"; // React 컴포넌트를 나타내는 Fragment를 가져옵니다.
+import Image from "next/image"; // 'next/image'를 가져와서 이미지를 렌더링합니다.
+import { Dialog, Transition } from "@headlessui/react"; // Headless UI의 Dialog 및 Transition 컴포넌트를 가져옵니다.
 
-import { CarProps } from "@/types";
-import { generateCarImageUrl } from "@/utils";
+import { CarProps } from "@/types"; // 'CarProps' 타입을 '@/types'에서 가져옵니다.
+import { generateCarImageUrl } from "@/utils"; // 유틸리티 함수를 가져옵니다.
+
 interface CarDetailsProps {
-  isOpen: boolean;
-  closeModal: () => void;
-  car: CarProps;
+  isOpen: boolean; // 모달 창 열림 여부
+  closeModal: () => void; // 모달 닫기 함수
+  car: CarProps; // 'car' 객체가 'CarProps' 타입임을 선언합니다.
 }
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
@@ -17,6 +18,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
     <>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          {/* 모달 다이얼로그 컨테이너 설정 */}
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -26,7 +28,8 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black bg-opacity-25" />{" "}
+            {/* 모달 뒷 배경 */}
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -41,6 +44,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                  {/* 모달 패널 설정 */}
                   <button
                     type="button"
                     className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
@@ -128,4 +132,4 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
   );
 };
 
-export default CarDetails;
+export default CarDetails; // 'CarDetails' 컴포넌트를 내보냅니다.

@@ -1,14 +1,14 @@
-"use client";
+"use client"; // 클라이언트 측 자바스크립트 코드를 나타냅니다.
 
-import { Fragment, useState } from "react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { Listbox, Transition } from "@headlessui/react";
-import { CustomFilterProps } from "@/types";
-import { updateSearchParams } from "@/utils";
+import { Fragment, useState } from "react"; // React 컴포넌트와 useState 훅을 가져옵니다.
+import Image from "next/image"; // 'next/image'를 가져와서 이미지를 렌더링합니다.
+import { useRouter } from "next/navigation"; // Next.js의 라우팅을 위한 'useRouter'를 가져옵니다.
+import { Listbox, Transition } from "@headlessui/react"; // Headless UI의 Listbox 및 Transition 컴포넌트를 가져옵니다.
+import { CustomFilterProps } from "@/types"; // 'CustomFilterProps' 타입을 '@/types'에서 가져옵니다.
+import { updateSearchParams } from "@/utils"; // 유틸리티 함수를 가져옵니다.
 
 const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(options[0]); // 선택된 옵션을 상태로 관리
 
   return (
     <div className="w-fit">
@@ -66,4 +66,4 @@ const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
   );
 };
 
-export default CustomFilter;
+export default CustomFilter; // 'CustomFilter' 컴포넌트를 내보냅니다.

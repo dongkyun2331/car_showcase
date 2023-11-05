@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "target": "es5", // TypeScript 코드를 ECMAScript 5로 대상화
+    "lib": ["dom", "dom.iterable", "esnext"], // 사용 가능한 라이브러리와 환경
+    "allowJs": true, // JavaScript 파일을 컴파일 허용
+    "skipLibCheck": true, // 라이브러리 검사 생략
+    "strict": true, // 엄격한 타입 체크 활성화
+    "forceConsistentCasingInFileNames": true, // 파일 이름의 일관된 대소문자 사용 강제
+    "noEmit": true, // TypeScript 코드를 JavaScript로 컴파일하지 않음
+    "esModuleInterop": true, // ES 모듈과 CommonJS 모듈 간 상호 운용성 활성화
+    "module": "esnext", // 모듈 시스템을 ESNext로 설정
+    "moduleResolution": "bundler", // 모듈 해결 방식을 번들러로 설정
+    "resolveJsonModule": true, // JSON 모듈을 해석 가능하게 함
+    "isolatedModules": true, // 모듈을 격리된 형태로 컴파일
+    "jsx": "preserve", // JSX 코드를 변경하지 않고 보존
+    "incremental": true, // 증분 컴파일 활성화
     "plugins": [
       {
         "name": "next"
@@ -23,6 +23,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "tailwind.config.js"
+  ], // 컴파일 대상 파일 및 디렉토리
+  "exclude": ["node_modules"] // 컴파일 제외할 디렉토리
 }
